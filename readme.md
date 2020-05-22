@@ -10,5 +10,4 @@ To get started head over to the env file and add the following:
  - Router Password
  - Router URL
  - Mongodb URL
-
-Then proceed using docker to spin up the application.
+ - Execute node blackout.js to run

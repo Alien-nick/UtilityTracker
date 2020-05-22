@@ -10,4 +10,8 @@ To get started head over to the env file and add the following:
  - Router Password
  - Router URL
  - Mongodb URL
- - Execute node blackout.js to run
+
+# To Start
+
+ - npm install
+ - node blackout.js

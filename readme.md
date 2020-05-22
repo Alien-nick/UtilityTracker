@@ -9,7 +9,6 @@ To get started head over to the env file and add the following:
  - Router Username
  - Router Password
  - Router URL
- - Access token for slack
- - Access token for emails
+ - Mongodb URL
 
 Then proceed using docker to spin up the application.

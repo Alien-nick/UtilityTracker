@@ -5,7 +5,8 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "lint": "eslint '*.js?(x)'"
+    "lint": "eslint '*.js?(x)'",
+    "start": "node src/index.js"
   },
   "author": "",
   "license": "ISC",

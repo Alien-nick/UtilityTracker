@@ -13,5 +13,8 @@
     "mongoose": "^5.9.15",
     "node-cron": "^2.0.3",
     "shelljs": "^0.8.4"
+  },
+  "devDependencies": {
+    "eslint": "^7.1.0"
   }
 }

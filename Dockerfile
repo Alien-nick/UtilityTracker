@@ -10,4 +10,4 @@ RUN npm install
 
 COPY . .
 
-CMD ["node", "blackout.js"]
+CMD ["node", "index.js"]

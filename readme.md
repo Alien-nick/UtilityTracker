@@ -13,5 +13,6 @@ To get started head over to the env file and add the following:
 
 # To Start
 
- - npm install
- - node blackout.js
+ - docker build .
+ - docker-compose build
+ - docker-compose up

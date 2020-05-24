@@ -10,4 +10,6 @@ RUN npm install
 
 COPY . .
 
-CMD ["node", "index.js"]
+RUN cd ./src/
+
+CMD ["npm", "start"]

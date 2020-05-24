@@ -6,6 +6,8 @@ const moment = require('moment')
 const log = require('./db')
 dotenv.config()
 
+var slackNotification = null
+
 // Set CRON to 1 minute
 cron.schedule('* * * * * *', () => {
   var power
@@ -25,13 +27,12 @@ cron.schedule('* * * * * *', () => {
       time: moment().format('MMMM Do YYYY, h:mm:ss')
     }, (err, instance) => {
       if (instance.status === 'Stable') {
-        var lastHour = moment().subtract(1, 'hour').format('MMMM Do YYYY, h:mm:ss')
-        log.findOne({ time: lastHour }).then(data => {
-          if (data._id !== null) {
-            // Send to slack
-            slack()
-          }
-        })
+        slackNotification = false
+      } else if (instance.status === 'Outage') {
+        if (slackNotification !== true) {
+          slack()
+          slackNotification = true
+        }
       }
       if (err) return console.log(err)
     })

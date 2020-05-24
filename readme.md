@@ -12,6 +12,8 @@ To get started head over to the env file and add the following:
  - Router Password
  - Router URL
  - Mongodb URL
+ - Slack webhook
+ - Your Name
 
 # To Start
 

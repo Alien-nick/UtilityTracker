@@ -9,9 +9,7 @@ db.on('error', console.error.bind(console, 'MongoDB connection error:'))
 // Define Schema
 var Schema = mongoose.Schema
 var gpl = new Schema({
-  time: {
-    type: Date, default: new Date()
-  },
+  time: String,
   status: String
 })
 

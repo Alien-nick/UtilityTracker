@@ -24,7 +24,7 @@ cron.schedule('* * * * * *', () => {
       status: power,
       time: moment().format('MMMM Do YYYY, h:mm:ss')
     }, (err, instance) => {
-      if (instance.status === 'Stable') {
+      if (instance.status === 'Outage') {
         var lastHour = moment().subtract(1, 'hour').format('MMMM Do YYYY, h:mm:ss')
         log.findOne({ time: lastHour }).then(data => {
           if (data._id !== null) {

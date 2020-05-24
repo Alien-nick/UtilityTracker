@@ -17,4 +17,4 @@ To get started head over to the env file and add the following:
 
  - docker build .
  - docker-compose build
- - docker-compose up
+ - docker-compose up -d

@@ -8,11 +8,11 @@ db.on('error', console.error.bind(console, 'MongoDB connection error:'))
 
 // Define Schema
 var Schema = mongoose.Schema
-var gplNotifier = new Schema({
+var gpl_log = new Schema({
   time: {
     type: Date, default: new Date()
   },
   status: String
 })
 
-module.exports = mongoose.model('gplNotifier', gplNotifier)
+module.exports = mongoose.model('gpl_logs', gpl_log)

@@ -1,8 +1,8 @@
 [![Build Status](https://travis-ci.com/Alien-nick/GPL_NOTIFIER.svg?branch=master)](https://travis-ci.com/Alien-nick/GPL_NOTIFIER)
 
-# GPL Notifier
+# Utility Notifier
 
-This is meant to notify me whenever I have power outage and to send a notification to me via Facebook Messenger, SMS notification and to send my office @intellectstorm a message I have power outage.
+This project is to allow me to keep track of my Blaze uptime, and to send my office @intellectstorm a notification whenever I have poweroutage. The current project is set to send notifications to slack.
 
 # Getting Started
 

@@ -1,11 +1,13 @@
 const exec = require('child_process').exec
-const dotenv = require('dotenv')
 const cron = require('node-cron')
+const dotenv = require('dotenv')
+const axios = require('axios')
+const moment = require('moment')
 const log = require('./db')
 dotenv.config()
 
 // Set CRON to 1 minute
-cron.schedule('* * * * * ', () => {
+cron.schedule('* * * * * *', () => {
   var power
   // Check if there is power outage.
   var command = 'curl -s -u ' + `${process.env.USERNAME}` + ':' + `${process.env.PASSWORD}` + ' ' + `${process.env.URL}` + '| grep "var alarmList" | ' + "awk '{print $10}'"
@@ -20,8 +22,17 @@ cron.schedule('* * * * * ', () => {
     // Log to Database
     log.create({
       status: power,
-      time: new Date()
+      time: moment().format('MMMM Do YYYY, h:mm:ss')
     }, (err, instance) => {
+      if (instance.status === 'Stable') {
+        var lastHour = moment().subtract(1, 'hour').format('MMMM Do YYYY, h:mm:ss')
+        log.findOne({ time: lastHour }).then(data => {
+          if (data._id !== null) {
+            // Send to slack
+            slack()
+          }
+        })
+      }
       if (err) return console.log(err)
     })
 
@@ -31,3 +42,9 @@ cron.schedule('* * * * * ', () => {
     }
   })
 })
+
+var slack = () => {
+  axios.post(`${process.env.SLACK_WEBHOOK}`, {
+    text: `${process.env.NAME}` + ' encountered a power outage at ' + new Date()
+  })
+}

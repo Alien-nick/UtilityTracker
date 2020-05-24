@@ -1,7 +1,7 @@
 const exec = require('child_process').exec
 const dotenv = require('dotenv')
 const cron = require('node-cron')
-const gpl = require('./db')
+const log = require('./db')
 dotenv.config()
 
 // Set CRON to 1 minute
@@ -18,7 +18,7 @@ cron.schedule('* * * * * ', () => {
       power = 'Stable'
     }
     // Log to Database
-    gpl.create({
+    log.create({
       status: power,
       time: new Date()
     }, (err, instance) => {

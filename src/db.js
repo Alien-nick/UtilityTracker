@@ -10,7 +10,10 @@ db.on('error', console.error.bind(console, 'MongoDB connection error:'))
 var Schema = mongoose.Schema
 var gpl = new Schema({
   time: String,
-  status: String
+  status: String,
+  voltage: String,
+  amps: String,
+  temperature: String
 })
 
 module.exports = mongoose.model('gpl_logs', gpl)

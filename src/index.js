@@ -58,7 +58,7 @@ var store = (power) => {
       time: moment().format('MMMM Do YYYY, h:mm:ss'),
       voltage: $('#table1 > tbody:nth-child(2) > tr:nth-child(9) > td:nth-child(2)').text(),
       amps: $('#table1 > tbody:nth-child(2) > tr:nth-child(7) > td:nth-child(2)').text(),
-      temp: $('#table1 > tbody:nth-child(2) > tr:nth-child(8) > td:nth-child(2)').text()
+      temperature: $('#table1 > tbody:nth-child(2) > tr:nth-child(8) > td:nth-child(2)').text()
     }, (err, instance) => {
       if (err) console.log('error: ', err)
     })

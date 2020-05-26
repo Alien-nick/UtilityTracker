@@ -10,6 +10,6 @@ RUN npm install
 
 COPY . .
 
-RUN cd ./src/
+RUN cd ./backend/
 
 CMD ["npm", "start"]

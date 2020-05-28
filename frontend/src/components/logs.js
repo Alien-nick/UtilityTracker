@@ -24,6 +24,50 @@ export default class Logs extends Component {
                     </div>
                 </div>
                 </nav>
+                <div class="list is-hoverable">
+                <div class="notification is-success">
+                    <div class="heading">
+                        <span class="">1 Minute ago</span>
+                    </div>
+                    <div class="title">
+                        <span class="">Stable</span>
+                    </div>
+                    <div class="subtitle-1">
+                        <span class="">3.4 Volts</span>
+                    </div>
+                    <div class="subtitle-2">
+                        <span class="">13.4 Amps</span>
+                    </div>
+                </div>
+                <div class="notification is-danger">
+                    <div class="heading">
+                        <span class="">3 Minutes ago</span>
+                    </div>
+                    <div class="title">
+                        <span class="">Outage</span>
+                    </div>
+                    <div class="subtitle-1">
+                        <span class="">3.4 Volts</span>
+                    </div>
+                    <div class="subtitle-2">
+                        <span class="">13.4 Amps</span>
+                    </div>
+                </div>
+                <div class="notification is-danger">
+                    <div class="heading">
+                        <span class="">15 Minutes ago</span>
+                    </div>
+                    <div class="title">
+                        <span class="">Outage</span>
+                    </div>
+                    <div class="subtitle-1">
+                        <span class="">3.4 Volts</span>
+                    </div>
+                    <div class="subtitle-2">
+                        <span class="">13.4 Amps</span>
+                    </div>
+                </div>
+              </div>
             </div>
         )
     }

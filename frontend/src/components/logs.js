@@ -1,73 +1,183 @@
 import React, { Component } from 'react';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faCoffee } from '@fortawesome/free-solid-svg-icons';
+import { Charts } from './charts';
 
 export default class Logs extends Component {
     render() {
         return (
+        <div>
             <div>
-                <nav class="level is-mobile">
-                <div class="level-item notification is-success has-text-centered">
-                    <div>
-                    <p class="heading has-text-weight-bold">Uptime</p>
-                    <p class="title">24hrs 59min</p>
+                <div class="columns">
+                    <div class="column">
+                        <div class="card">
+                            <div class="card-content">
+                                <div class="content">
+                                    Hours up
+                                    <span class="is-success"><FontAwesomeIcon icon={faCoffee} /></span>
+                                <br/>
+                                    <span>3hrs</span>
+                                </div>
+                            </div>
+                        </div>
+                      </div>
+                      <div class="column">
+                        <div class="card">
+                            <div class="card-content">
+                                <div class="content">
+                                    Outages past week
+                                <br/>
+                                <time>5</time>
+                                </div>
+                            </div>
+                        </div>
+                      </div>
+                      <div class="column">
+                        <div class="card">
+                            <div class="card-content">
+                                <div class="content">
+                                    Uptime
+                                <br/>
+                                <time datetime="2016-1-1">50%</time>
+                                </div>
+                            </div>
+                        </div>
+                      </div>
+                      <div class="column">
+                        <div class="card">
+                            <div class="card-content">
+                                <div class="content">
+                                    Temperature
+                                <br/>
+                                    <span>137C(129 F)</span>
+                                </div>
+                            </div>
+                        </div>
+                      </div>
                     </div>
                 </div>
-                <div class="level-item notification is-danger has-text-centered">
-                    <div>
-                    <p class="heading">Outages Last 7 days</p>
-                    <p class="title">123</p>
+                <br/>
+                <div>
+                </div>
+                <br/>
+                <div class="columns">
+                    <div class="column is-mobile is-8">
+                    <nav class="panel is-info">
+                        <p class="panel-heading">
+                            GPL Logs
+                        </p>
+                        <div class="panel-block">
+                            <p class="control has-icons-left">
+                            <input class="input" type="text" placeholder="Search"/>
+                            <span class="icon is-left">
+                                <i class="fa fa-search" aria-hidden="true"></i>
+                            </span>
+                            </p>
+                        </div>
+                        <div class="panel-block">
+                            <div class="columns">
+                                <div class="column">
+                                    <span class="tag is-warning">3 Mins Ago</span>
+                                </div>
+                                <div class="column">
+                                    <h1 class="tag is-success">Stable</h1>
+                                </div>
+                                <div class="column">
+                                    <h1 class="tag is-primary">3.4 Volts</h1>
+                                </div>
+                                <div class="column">
+                                    <h1 class="tag is-primary">13.4 Amps</h1>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="panel-block">
+                            <div class="columns">
+                                <div class="column">
+                                    <span class="tag is-warning">4 Mins Ago</span>
+                                </div>
+                                <div class="column">
+                                    <h1 class="tag is-danger">Outage</h1>
+                                </div>
+                                <div class="column">
+                                    <h1 class="tag is-primary">3.4 Volts</h1>
+                                </div>
+                                <div class="column">
+                                    <h1 class="tag is-primary">13.4 Amps</h1>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="panel-block">
+                            <div class="columns">
+                                <div class="column">
+                                    <span class="tag is-warning">5 Mins Ago</span>
+                                </div>
+                                <div class="column">
+                                    <h1 class="tag is-success">Stable</h1>
+                                </div>
+                                <div class="column">
+                                    <h1 class="tag is-primary">3.4 Volts</h1>
+                                </div>
+                                <div class="column">
+                                    <h1 class="tag is-primary">13.4 Amps</h1>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="panel-block">
+                            <div class="columns">
+                                <div class="column">
+                                    <span class="tag is-warning">6 Mins Ago</span>
+                                </div>
+                                <div class="column">
+                                    <h1 class="tag is-danger">Outage</h1>
+                                </div>
+                                <div class="column">
+                                    <h1 class="tag is-primary">3.4 Volts</h1>
+                                </div>
+                                <div class="column">
+                                    <h1 class="tag is-primary">13.4 Amps</h1>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="panel-block">
+                            <div class="columns">
+                                <div class="column">
+                                    <span class="tag is-warning">7 Mins Ago</span>
+                                </div>
+                                <div class="column">
+                                    <h1 class="tag is-danger">Outage</h1>
+                                </div>
+                                <div class="column">
+                                    <h1 class="tag is-primary">3.4 Volts</h1>
+                                </div>
+                                <div class="column">
+                                    <h1 class="tag is-primary">13.4 Amps</h1>
+                                </div>
+                            </div>
+                        </div>
+                        <br/>
+                        <div class="block">
+                        <nav class="pagination is-small">
+                            <a href="" class="pagination-previous" disabled>Previous</a>
+                            <a href="" class="pagination-next">Next page</a>
+                            <ul class="pagination-list">
+                            <li>
+                                <a href="" class="pagination-link is-current">1</a>
+                            </li>
+                            <li>
+                                <a href="" class="pagination-link">2</a>
+                            </li>
+                            <li>
+                                <a href="" class="pagination-link">3</a>
+                            </li>
+                            </ul>
+                        </nav>
+                        </div>
+                      </nav>
+                    </div>
+                    <div class="column">
+                        <Charts/>
                     </div>
                 </div>
-                <div class="level-item notification is-info has-text-centered">
-                    <div>
-                    <p class="heading">Average Router Temperature</p>
-                    <p class="title">54.1C(129.4F)</p>
-                    </div>
-                </div>
-                </nav>
-                <div class="list is-hoverable">
-                <div class="notification is-success">
-                    <div class="heading">
-                        <span class="">1 Minute ago</span>
-                    </div>
-                    <div class="title">
-                        <span class="">Stable</span>
-                    </div>
-                    <div class="subtitle-1">
-                        <span class="">3.4 Volts</span>
-                    </div>
-                    <div class="subtitle-2">
-                        <span class="">13.4 Amps</span>
-                    </div>
-                </div>
-                <div class="notification is-danger">
-                    <div class="heading">
-                        <span class="">3 Minutes ago</span>
-                    </div>
-                    <div class="title">
-                        <span class="">Outage</span>
-                    </div>
-                    <div class="subtitle-1">
-                        <span class="">3.4 Volts</span>
-                    </div>
-                    <div class="subtitle-2">
-                        <span class="">13.4 Amps</span>
-                    </div>
-                </div>
-                <div class="notification is-danger">
-                    <div class="heading">
-                        <span class="">15 Minutes ago</span>
-                    </div>
-                    <div class="title">
-                        <span class="">Outage</span>
-                    </div>
-                    <div class="subtitle-1">
-                        <span class="">3.4 Volts</span>
-                    </div>
-                    <div class="subtitle-2">
-                        <span class="">13.4 Amps</span>
-                    </div>
-                </div>
-              </div>
             </div>
         )
     }

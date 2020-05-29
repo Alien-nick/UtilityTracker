@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faCoffee } from '@fortawesome/free-solid-svg-icons';
 
 export default class Cards extends Component {
     render() {
@@ -13,7 +12,6 @@ export default class Cards extends Component {
                             <div class="card-content">
                                 <div class="content">
                                     Hours up
-                                    <span class="is-success"><FontAwesomeIcon icon={faCoffee} /></span>
                                 <br/>
                                     <span>3hrs</span>
                                 </div>

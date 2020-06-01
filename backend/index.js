@@ -59,7 +59,7 @@ var store = (power) => {
     // Log to Database
     log.create({
       power: power,
-      time: moment().format('MMMM Do YYYY, h:mm:ss'),
+      time: moment().format('MMMM D YYYY, H:mm:ss'),
       voltage: parseFloat(volts),
       amps: parseFloat(amps),
       temperature: temp

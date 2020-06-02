@@ -150,17 +150,17 @@ export default class BandwidthLogs extends Component {
                         <br/>
                         <div class="block">
                         <nav class="pagination is-small">
-                            <a href="" class="pagination-previous" disabled>Previous</a>
-                            <a href="" class="pagination-next">Next page</a>
+                            <a href="#" class="pagination-previous" disabled>Previous</a>
+                            <a href="#" class="pagination-next">Next page</a>
                             <ul class="pagination-list">
                             <li>
-                                <a href="" class="pagination-link is-current">1</a>
+                                <a href="#" class="pagination-link is-current">1</a>
                             </li>
                             <li>
-                                <a href="" class="pagination-link">2</a>
+                                <a href="#" class="pagination-link">2</a>
                             </li>
                             <li>
-                                <a href="" class="pagination-link">3</a>
+                                <a href="#" class="pagination-link">3</a>
                             </li>
                             </ul>
                         </nav>

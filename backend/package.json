@@ -15,6 +15,7 @@
     "body-parser": "^1.19.0",
     "cheerio": "^1.0.0-rc.3",
     "dotenv": "^8.2.0",
+    "fast-speedtest-api": "^0.3.2",
     "http-status-code": "^2.1.0",
     "moment": "^2.26.0",
     "mongoose": "^5.9.15",

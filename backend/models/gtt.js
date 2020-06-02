@@ -13,4 +13,4 @@ var gtt = new Schema({
   server: String
 })
 
-module.exports = db.mongoose.model('gtt', gpl)
+module.exports = db.mongoose.model('gtt', gtt)

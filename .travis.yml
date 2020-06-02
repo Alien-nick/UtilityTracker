@@ -6,7 +6,7 @@ node_js:
   - node
 
 script:
-  - npm run lint
+  - script.sh
 
 notifications:
   emails: false

@@ -16,7 +16,7 @@ export default class PowerCards extends Component {
     }
 
     getSummary() {
-        axios.get('http://127.0.0.1:4002/powerlog/summary')
+        axios.get('http://127.0.0.1:27000/powerlogs/summary')
             .then(res => {
                 var data = res.data;
                 this.setState({

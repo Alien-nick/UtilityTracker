@@ -2,42 +2,18 @@ const express = require('express')
 const app = express()
 const bodyParser = require('body-parser')
 const cors = require('cors')
-const PORT = 4001;
+const PORT = 4002;
 const router = express.Router()
-const powerlogs = require('./db')
+const gpl = require('./db')
+var gplRouter = require('./routes/gpl')
+
 
 app.use(cors())
 app.use(bodyParser.json())
+app.use("/powerlogs", gplRouter)
+app.use("/powerlogs/summary", gplRouter)
+app.use("/powerlogs/charts", gplRouter)
 
 app.listen(PORT, () => {
     console.log('Server is running on: ' + PORT)
 })
-
-app.use('/powerlogs/:id', router)
-app.use('/powerlogs', router)
-// app.use('/', router)
-
-router.get('powerlogs/:id', (req, res) => {
-    powerlogs.find({_id: req.params.id}, (err, date) => {
-        if(err) {
-            res.send(Err)
-        }
-        console.log(date[0])
-    })
-})
-
-router.get('/powerlogs', (req, res) => {
-    powerlogs.find((err, logs) => {
-        if (err) {
-            res.send(err)
-        } else {
-            res.json(logs)
-        }
-    })
-})
-
-// router.get('/', (req, res) => {
-//     res.json('Test')
-// })
-
-module.exports = router

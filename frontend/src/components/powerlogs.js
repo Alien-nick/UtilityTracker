@@ -3,6 +3,7 @@ import { PowerCharts } from './powerCharts';
 import { PowerCards } from './powerCards';
 import axios from 'axios'
 import ReactPaginate from 'react-paginate';
+import dotenv from 'dotenv';
 
 export default class PowerLogs extends Component {
 
@@ -23,7 +24,7 @@ export default class PowerLogs extends Component {
     }
 
     fetchLogs() {
-        axios.get('http://127.0.0.1:4002/powerlogs')
+        axios.get('http://127.0.0.1:27000/powerlogs')
             .then(res => {
                 this.setState({
 

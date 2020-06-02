@@ -10,16 +10,16 @@ import "bulma/css/bulma.css";
 function App() {
   return (
     <Router>
-      <div class="">
-          <nav class="navbar is-link is-active" role="navigation" aria-label="main navigation">
-            <div class="navbar-start">
-              <Link to="#" className="navbar-item"><span class="has-text-weight-bold has-white-text">Utility Notifer </span></Link>
+      <div className="">
+          <nav className="navbar is-link is-active" role="navigation" aria-label="main navigation">
+            <div className="navbar-start">
+              <Link to="#" className="navbar-item"><span className="has-text-weight-bold has-white-text">Utility Notifer </span></Link>
             </div>
-            <div class="navbar-end">
-            <Link to="/outages" className="navbar-item"><span class="has-text-weight-bold">Outages </span></Link>
-              <Link to="/powerlogs" className="navbar-item"><span class="has-text-weight-bold">Gpl Logs </span></Link>
-              <Link to="/bandwidthlogs" className="navbar-item"><span class="has-text-weight-bold">Bandwidth Logs </span></Link>
-              <Link to="/backend" className="navbar-item"><span class="has-text-weight-bold">Settings </span></Link>
+            <div className="navbar-end">
+            <Link to="/outages" className="navbar-item"><span className="has-text-weight-bold">Outages </span></Link>
+              <Link to="/powerlogs" className="navbar-item"><span className="has-text-weight-bold">Gpl Logs </span></Link>
+              <Link to="/bandwidthlogs" className="navbar-item"><span className="has-text-weight-bold">Bandwidth Logs </span></Link>
+              <Link to="/backend" className="navbar-item"><span className="has-text-weight-bold">Settings </span></Link>
             </div> 
           </nav>
           <br/>

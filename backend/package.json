@@ -6,7 +6,8 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "lint": "eslint '*.js?(x)'",
-    "start": "node index.js"
+    "start": "node app.js",
+    "cron": "node ./jobs/LogGpl.js"
   },
   "author": "",
   "license": "ISC",

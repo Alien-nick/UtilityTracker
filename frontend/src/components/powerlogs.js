@@ -1,127 +1,105 @@
 import React, { Component } from 'react';
 import { PowerCharts } from './powerCharts';
 import { PowerCards } from './powerCards';
+import axios from 'axios'
+import ReactPaginate from 'react-paginate';
 
 export default class PowerLogs extends Component {
+
+    constructor() {
+        super()
+        this.state = {
+            offset: 0,
+            data: [],
+            perPage: 15,
+            currentPage: 0
+        }
+
+        this.handlePageClick = this.handlePageClick.bind(this)
+    }
+
+    componentDidMount() {
+        this.fetchLogs()
+    }
+
+    fetchLogs() {
+        axios.get('http://127.0.0.1:4002/powerlogs')
+            .then(res => {
+                this.setState({
+
+                })
+            }).catch((error) => {
+                console.log(error)
+            })
+    }
+
+    handlePageClick = (e) => {
+        const selectedPage = e.selected;
+        const offset = selectedPage * this.state.perPage;
+
+        this.setState({
+            currentPage: selectedPage,
+            offset: offset
+        }, () => {
+            this.fetchLogs()
+        })
+    }
+
     render() {
         return (
-        <div>
+        <div className="column">
             <PowerCards/>
-                <div class="columns">
-                    <div class="column is-mobile is-8">
-                    <nav class="panel is-info">
-                        <p class="panel-heading">
+                <div className="columns">
+                    <div className="column is-mobile is-4">
+                    <nav className="panel is-info">
+                        <p className="panel-heading">
                             GPL Logs
                         </p>
-                        <div class="panel-block">
-                            <p class="control has-icons-left">
-                            <input class="input" type="text" placeholder="Search"/>
-                            <span class="icon is-left">
-                                <i class="fa fa-search" aria-hidden="true"></i>
+                        <div className="panel-block">
+                            <p className="control has-icons-left">
+                            <input className="input" type="text" placeholder="Search"/>
+                            <span className="icon is-left">
+                                <i className="fa fa-search" aria-hidden="true"></i>
                             </span>
                             </p>
                         </div>
-                        <div class="panel-block">
-                            <div class="columns">
-                                <div class="column">
-                                    <span class="tag is-warning">3 Mins Ago</span>
+                        <div className="panel-block">
+                            <div className="columns">
+                                <div className="column">
+                                    <span className="tag is-warning">3 Mins Ago</span>
                                 </div>
-                                <div class="column">
-                                    <h1 class="tag is-success">Stable</h1>
+                                <div className="column">
+                                    <h1 className="tag is-success">Stable</h1>
                                 </div>
-                                <div class="column">
-                                    <h1 class="tag is-primary">3.4 Volts</h1>
+                                <div className="column">
+                                    <h1 className="tag is-primary">3.4 Volts</h1>
                                 </div>
-                                <div class="column">
-                                    <h1 class="tag is-primary">13.4 Amps</h1>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="panel-block">
-                            <div class="columns">
-                                <div class="column">
-                                    <span class="tag is-warning">4 Mins Ago</span>
-                                </div>
-                                <div class="column">
-                                    <h1 class="tag is-danger">Outage</h1>
-                                </div>
-                                <div class="column">
-                                    <h1 class="tag is-primary">3.4 Volts</h1>
-                                </div>
-                                <div class="column">
-                                    <h1 class="tag is-primary">13.4 Amps</h1>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="panel-block">
-                            <div class="columns">
-                                <div class="column">
-                                    <span class="tag is-warning">5 Mins Ago</span>
-                                </div>
-                                <div class="column">
-                                    <h1 class="tag is-success">Stable</h1>
-                                </div>
-                                <div class="column">
-                                    <h1 class="tag is-primary">3.4 Volts</h1>
-                                </div>
-                                <div class="column">
-                                    <h1 class="tag is-primary">13.4 Amps</h1>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="panel-block">
-                            <div class="columns">
-                                <div class="column">
-                                    <span class="tag is-warning">6 Mins Ago</span>
-                                </div>
-                                <div class="column">
-                                    <h1 class="tag is-danger">Outage</h1>
-                                </div>
-                                <div class="column">
-                                    <h1 class="tag is-primary">3.4 Volts</h1>
-                                </div>
-                                <div class="column">
-                                    <h1 class="tag is-primary">13.4 Amps</h1>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="panel-block">
-                            <div class="columns">
-                                <div class="column">
-                                    <span class="tag is-warning">7 Mins Ago</span>
-                                </div>
-                                <div class="column">
-                                    <h1 class="tag is-danger">Outage</h1>
-                                </div>
-                                <div class="column">
-                                    <h1 class="tag is-primary">3.4 Volts</h1>
-                                </div>
-                                <div class="column">
-                                    <h1 class="tag is-primary">13.4 Amps</h1>
+                                <div className="column">
+                                    <h1 className="tag is-primary">13.4 Amps</h1>
                                 </div>
                             </div>
                         </div>
                         <br/>
-                        <div class="block">
-                        <nav class="pagination is-small">
-                            <a href="" class="pagination-previous" disabled>Previous</a>
-                            <a href="" class="pagination-next">Next page</a>
-                            <ul class="pagination-list">
+                        <div className="block">
+                        <nav className="pagination is-small">
+                            <a className="pagination-previous" disabled>Previous</a>
+                            <a href="#" className="pagination-next">Next page</a>
+                            <ul className="pagination-list">
                             <li>
-                                <a href="" class="pagination-link is-current">1</a>
+                                <a href="#" className="pagination-link is-current">1</a>
                             </li>
                             <li>
-                                <a href="" class="pagination-link">2</a>
+                                <a href="#" className="pagination-link">2</a>
                             </li>
                             <li>
-                                <a href="" class="pagination-link">3</a>
+                                <a href="#" className="pagination-link">3</a>
                             </li>
                             </ul>
                         </nav>
                         </div>
                       </nav>
                     </div>
-                    <div class="column">
+                    <div className="column is-8">
                         <PowerCharts/>
                     </div>
                 </div>

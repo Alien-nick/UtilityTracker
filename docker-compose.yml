@@ -1,10 +1,21 @@
 version: "3"
 services:
-    app:
-        container_name: poweroutage
+    frontend:
+        container_name: frontend
+        build: ./frontend
+        ports:
+            - 3000:3000
+        depends_on:
+            - backend
+    backend:
+        container_name: api
+        build: ./backend
         restart: always
-        build: .
+        ports: 
+            - 27000:27000
         links:
+            - mongo
+        depends_on: 
             - mongo
     mongo:
         container_name: mongo

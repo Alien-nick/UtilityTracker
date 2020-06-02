@@ -18,7 +18,7 @@ export default class PowerCharts extends Component {
     }
 
     getIrregularities() {
-        axios.get('http://127.0.0.1:4002/powerlog/charts')
+        axios.get('http://127.0.0.1:27000/powerlogs/charts')
             .then(res => {
                 let data = res.data
                 let volt = []

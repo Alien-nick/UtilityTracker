@@ -1,16 +1,43 @@
 import React, { Component } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import axios from 'axios';
 
 export default class PowerCards extends Component {
+
+    constructor(props) {
+        super(props)
+        this.state = {
+            cards: {}
+        }
+    }
+
+    componentDidMount() {
+        this.getSummary()
+    }
+
+    getSummary() {
+        axios.get('http://127.0.0.1:4002/powerlog/summary')
+            .then(res => {
+                var data = res.data;
+                this.setState({
+                    cards: {
+                        outages: res.data.outages
+                    }
+                })
+            }).catch((error) => {
+                console.log(error)
+            })
+    }
+
     render() {
         return (
             <div>
                 <div>
-                <div class="columns">
-                    <div class="column">
-                        <div class="card">
-                            <div class="card-content">
-                                <div class="content">
+                <div className="columns">
+                    <div className="column">
+                        <div className="card">
+                            <div className="card-content">
+                                <div className="content">
                                     Hours up
                                 <br/>
                                     <span>3hrs</span>
@@ -18,32 +45,32 @@ export default class PowerCards extends Component {
                             </div>
                         </div>
                       </div>
-                      <div class="column">
-                        <div class="card">
-                            <div class="card-content">
-                                <div class="content">
+                      <div className="column">
+                        <div className="card">
+                            <div className="card-content">
+                                <div className="content">
                                     Outages past week
                                 <br/>
-                                <time>5</time>
+                                    <span>{this.state.cards.outages}</span>
                                 </div>
                             </div>
                         </div>
                       </div>
-                      <div class="column">
-                        <div class="card">
-                            <div class="card-content">
-                                <div class="content">
+                      <div className="column">
+                        <div className="card">
+                            <div className="card-content">
+                                <div className="content">
                                     Uptime
                                 <br/>
-                                <time datetime="2016-1-1">50%</time>
+                                <span>50%</span>
                                 </div>
                             </div>
                         </div>
                       </div>
-                      <div class="column">
-                        <div class="card">
-                            <div class="card-content">
-                                <div class="content">
+                      <div className="column">
+                        <div className="card">
+                            <div className="card-content">
+                                <div className="content">
                                     Temperature
                                 <br/>
                                     <span>137C(129 F)</span>

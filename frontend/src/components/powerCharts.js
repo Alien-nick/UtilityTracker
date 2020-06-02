@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Bar, Line, Pie } from 'react-chartjs-2';
+import {Line } from 'react-chartjs-2';
 import axios from 'axios';
 import moment from 'moment';
 
@@ -13,7 +13,7 @@ export default class PowerCharts extends Component {
         }
     }
 
-    componentWillMount() {
+    componentDidMount() {
         this.getIrregularities();
     }
 

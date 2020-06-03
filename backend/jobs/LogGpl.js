@@ -10,7 +10,7 @@ dotenv.config()
 var slackNotification = null
 
 // Set CRON to 1 minute
-cron.schedule('* * * * * *', () => {
+cron.schedule('* * * * *', () => {
   var power
   // Check if there is power outage.
   var command = 'curl -s -u ' + `${process.env.USERNAME}` + ':' + `${process.env.PASSWORD}` + ' ' + `${process.env.URL}` + 'zhninfo.html' + ' ' + '| grep "var alarmList" | ' + "awk '{print $10}'"

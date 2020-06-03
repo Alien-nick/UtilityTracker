@@ -1,4 +1,4 @@
-[![Build Status](https://travis-ci.com/Alien-nick/GPL_NOTIFIER.svg?branch=master)](https://travis-ci.com/Alien-nick/GPL_NOTIFIER)
+[![Build Status](https://travis-ci.com/Alien-nick/UtilityNotifier.svg?branch=master)](https://travis-ci.com/Alien-nick/UtilityNotifier)
 
 # Utility Notifier
 

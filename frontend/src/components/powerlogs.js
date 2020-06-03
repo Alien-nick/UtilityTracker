@@ -1,0 +1,110 @@
+import React, { Component } from 'react';
+import { PowerCharts } from './powerCharts';
+import { PowerCards } from './powerCards';
+import axios from 'axios'
+import ReactPaginate from 'react-paginate';
+import dotenv from 'dotenv';
+
+export default class PowerLogs extends Component {
+
+    constructor() {
+        super()
+        this.state = {
+            offset: 0,
+            data: [],
+            perPage: 15,
+            currentPage: 0
+        }
+
+        this.handlePageClick = this.handlePageClick.bind(this)
+    }
+
+    componentDidMount() {
+        this.fetchLogs()
+    }
+
+    fetchLogs() {
+        axios.get('http://127.0.0.1:27000/powerlogs')
+            .then(res => {
+                this.setState({
+
+                })
+            }).catch((error) => {
+                console.log(error)
+            })
+    }
+
+    handlePageClick = (e) => {
+        const selectedPage = e.selected;
+        const offset = selectedPage * this.state.perPage;
+
+        this.setState({
+            currentPage: selectedPage,
+            offset: offset
+        }, () => {
+            this.fetchLogs()
+        })
+    }
+
+    render() {
+        return (
+        <div className="column">
+            <PowerCards/>
+                <div className="columns">
+                    <div className="column is-mobile is-4">
+                    <nav className="panel is-info">
+                        <p className="panel-heading">
+                            GPL Logs
+                        </p>
+                        <div className="panel-block">
+                            <p className="control has-icons-left">
+                            <input className="input" type="text" placeholder="Search"/>
+                            <span className="icon is-left">
+                                <i className="fa fa-search" aria-hidden="true"></i>
+                            </span>
+                            </p>
+                        </div>
+                        <div className="panel-block">
+                            <div className="columns">
+                                <div className="column">
+                                    <span className="tag is-warning">3 Mins Ago</span>
+                                </div>
+                                <div className="column">
+                                    <h1 className="tag is-success">Stable</h1>
+                                </div>
+                                <div className="column">
+                                    <h1 className="tag is-primary">3.4 Volts</h1>
+                                </div>
+                                <div className="column">
+                                    <h1 className="tag is-primary">13.4 Amps</h1>
+                                </div>
+                            </div>
+                        </div>
+                        <br/>
+                        <div className="block">
+                        <nav className="pagination is-small">
+                            <a className="pagination-previous" disabled>Previous</a>
+                            <a href="#" className="pagination-next">Next page</a>
+                            <ul className="pagination-list">
+                            <li>
+                                <a href="#" className="pagination-link is-current">1</a>
+                            </li>
+                            <li>
+                                <a href="#" className="pagination-link">2</a>
+                            </li>
+                            <li>
+                                <a href="#" className="pagination-link">3</a>
+                            </li>
+                            </ul>
+                        </nav>
+                        </div>
+                      </nav>
+                    </div>
+                    <div className="column is-8">
+                        <PowerCharts/>
+                    </div>
+                </div>
+            </div>
+        )
+    }
+}

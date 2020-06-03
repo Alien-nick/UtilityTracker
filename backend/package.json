@@ -5,26 +5,33 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "lint": "eslint 'src/*.js?(x)'",
-    "start": "node src/index.js"
+    "lint": "eslint '*.js?(x)'",
+    "start": "node app.js",
+    "cron": "node ./jobs/LogGpl.js"
   },
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "body-parser": "^1.19.0",
     "cheerio": "^1.0.0-rc.3",
     "dotenv": "^8.2.0",
+    "fast-speedtest-api": "^0.3.2",
+    "http-status-code": "^2.1.0",
     "moment": "^2.26.0",
     "mongoose": "^5.9.15",
     "node-cron": "^2.0.3",
+    "nodemon": "^2.0.4",
     "shelljs": "^0.8.4"
   },
   "devDependencies": {
     "axios": "^0.19.2",
+    "cors": "^2.8.5",
     "eslint": "^7.1.0",
     "eslint-config-standard": "^14.1.1",
     "eslint-plugin-import": "^2.20.2",
     "eslint-plugin-node": "^11.1.0",
     "eslint-plugin-promise": "^4.2.1",
-    "eslint-plugin-standard": "^4.0.1"
+    "eslint-plugin-standard": "^4.0.1",
+    "express": "^4.17.1"
   }
 }

@@ -4,7 +4,7 @@ const cron = require('node-cron')
 const dotenv = require('dotenv')
 const moment = require('moment')
 const axios = require('axios')
-const log = require('./db')
+const gpl = require('../models/gpl')
 dotenv.config()
 
 var slackNotification = null
@@ -20,13 +20,13 @@ cron.schedule('* * * * *', () => {
     console.log(slackNotification)
     var str = output.substring(0, 2)
     if (str !== 'OK') {
-      power = 'Outage'
+      power = false
       if (slackNotification !== true) {
         slack()
         slackNotification = true
       }
     } else {
-      power = 'Stable'
+      power = true
       slackNotification = false
     }
     console.log('power: ', power)
@@ -52,13 +52,17 @@ var store = (power) => {
     }
   }).then((response) => {
     const $ = cheerio.load(response.data)
+    var volts = $('#table1 > tbody:nth-child(2) > tr:nth-child(9) > td:nth-child(2)').text()
+    var amps = $('#table1 > tbody:nth-child(2) > tr:nth-child(7) > td:nth-child(2)').text()
+    var temp = $('#table1 > tbody:nth-child(2) > tr:nth-child(8) > td:nth-child(2)').text()
+
     // Log to Database
-    log.create({
-      status: power,
-      time: moment().format('MMMM Do YYYY, h:mm:ss'),
-      voltage: $('#table1 > tbody:nth-child(2) > tr:nth-child(9) > td:nth-child(2)').text(),
-      amps: $('#table1 > tbody:nth-child(2) > tr:nth-child(7) > td:nth-child(2)').text(),
-      temperature: $('#table1 > tbody:nth-child(2) > tr:nth-child(8) > td:nth-child(2)').text()
+    gpl.create({
+      power: power,
+      time: moment().format('MMMM D YYYY, H:mm:ss'),
+      voltage: parseFloat(volts),
+      amps: parseFloat(amps),
+      temperature: temp
     }, (err, instance) => {
       if (err) console.log('error: ', err)
     })

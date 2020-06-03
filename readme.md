@@ -11,12 +11,10 @@ To get started head over to the env file and add the following:
  - Router Username
  - Router Password
  - Router URL
- - Mongodb URL
  - Slack webhook
  - Your Name
 
 # To Start
 
- - docker build .
  - docker-compose build
  - docker-compose up -d

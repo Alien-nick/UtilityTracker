@@ -10,6 +10,7 @@ services:
     backend:
         container_name: api
         build: ./backend
+        command: npm run cron
         restart: always
         ports: 
             - 27000:27000

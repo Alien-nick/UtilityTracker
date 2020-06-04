@@ -5,7 +5,7 @@ import powerlogs from './components/powerlogs';
 import bandwidthLogs from './components/bandwidthLogs';
 import Outages from './components/outages';
 import logo from './logo.svg';
-import "bulma/css/bulma.css";
+import 'bulma/css/bulma.css'
 
 function App() {
   return (

@@ -21,7 +21,7 @@ Submit the following:
 - Router URL
 
 # Docker
-- In progress...
+- Currently Rebuilding...
 
 # Roadmap
 - GTT Bandwidth Logger

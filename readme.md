@@ -24,8 +24,7 @@ Submit the following:
 - In progress...
 
 # Roadmap
-### Loggers
-- GTT Bandwidth
+- GTT Bandwidth Logger
 - Notification via Slack
 
 # To contribute

@@ -28,7 +28,7 @@ then
         if [[ $check_mongo ]]
         then
             # Start up
-            cd backend
+            cd backend/jobs
             touch .env
             echo -e \USERNAME=$username >> .env
             echo -e PASSWORD=$password >> .env

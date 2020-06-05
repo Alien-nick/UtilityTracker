@@ -63,22 +63,8 @@ export default class PowerCharts extends Component {
 
     render() {
         return (
-            <div className="chart">
-                <Line
-                    data={this.state.irregularities}
-                    options={{
-                        title: {
-                            display: true,
-                            text: 'High/Low Voltage',
-                            fontSize: 25
-                        },
-                        legend: {
-                            display: true,
-                            position: 'right'
-                        }
-                    }}
-                    />
-
+            <div className="columns">
+                <div className="column">
                 <Line
                     data={this.state.powerOutage}
                     options={{
@@ -93,6 +79,22 @@ export default class PowerCharts extends Component {
                         }
                     }}
                     />
+
+                <Line
+                    data={this.state.irregularities}
+                    options={{
+                        title: {
+                            display: true,
+                            text: 'Router Irregularities',
+                            fontSize: 25
+                        },
+                        legend: {
+                            display: true,
+                            position: 'right'
+                        }
+                    }}
+                    />
+                </div>
             </div>
         );
     }

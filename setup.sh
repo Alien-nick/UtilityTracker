@@ -30,7 +30,7 @@ then
             # Start up
             cd backend
             touch .env
-            echo -e USERNAME=$username >> .env
+            echo -e LOGIN=$username >> .env
             echo -e PASSWORD=$password >> .env
             echo -e URL='http://'$gateway >> .env
             echo -e MONGO='mongodb://127.0.0.1:27017/logs' >> .env

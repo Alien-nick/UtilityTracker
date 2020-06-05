@@ -13,16 +13,21 @@ read username
 echo "Kindly input your Router password:"
 read password
 
-# Check router gateway, if the status code is 401, proceed
+# Check router gateway and credentials, if the status code is 200, proceed
 check_gateway=$(curl -s -o /dev/null -w "%{http_code}" http://$gateway -u $username:$password)
+
 if [[ $check_gateway -eq 200 ]]
 then
+    # Check if node is installed
     check_node=$(node -v)
     if [[ $check_node ]]
     then
+        # Check if mongo is installed
+
         check_mongo=$(mongod --version)
         if [[ $check_mongo ]]
         then
+            # Start up
             cd backend
             touch .env
             echo -e \USERNAME=$username >> .env
@@ -37,9 +42,14 @@ then
             cd ../frontend
             npm install --silent
             npm start >> client.log 2>&1 &
+        else
+            echo "Install Mongodb, Existing..."
+            exit 0
         fi
+    else
+        echo "Install Node, Existing..."
+        exit 0
     fi
-    
 else
     echo "Incorrect Gateway, Exiting..."
     exit 0

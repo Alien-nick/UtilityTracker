@@ -33,7 +33,7 @@ export default class PowerLogs extends Component {
                 console.log(error)
             })
         **/
-       axios.get('http://127.0.0.1:27003/powerlogs')
+       axios.get('http://127.0.0.1:27000/powerlogs')
             .then(res => {
                 this.setState({
                     data: res.data

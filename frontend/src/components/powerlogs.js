@@ -1,9 +1,7 @@
 import React, { Component } from 'react';
 import { PowerCharts } from './powerCharts';
 import { PowerCards } from './powerCards';
-import axios from 'axios'
-import ReactPaginate from 'react-paginate';
-import dotenv from 'dotenv';
+import axios from 'axios';
 
 export default class PowerLogs extends Component {
 
@@ -11,6 +9,7 @@ export default class PowerLogs extends Component {
         super()
         this.state = {
             offset: 0,
+            logs: [],
             data: [],
             perPage: 15,
             currentPage: 0
@@ -24,6 +23,7 @@ export default class PowerLogs extends Component {
     }
 
     fetchLogs() {
+        /* Pagination to be implemented later.
         axios.get('http://127.0.0.1:27000/powerlogs')
             .then(res => {
                 this.setState({
@@ -31,6 +31,16 @@ export default class PowerLogs extends Component {
                 })
             }).catch((error) => {
                 console.log(error)
+            })
+        **/
+       axios.get('http://127.0.0.1:27003/powerlogs')
+            .then(res => {
+                this.setState({
+                    data: res.data
+                })
+                console.log('State: ', this.state.data)
+            }).catch((err) => {
+                console.log(err)
             })
     }
 
@@ -64,6 +74,9 @@ export default class PowerLogs extends Component {
                             </span>
                             </p>
                         </div>
+                {(this.state.data.length > 0) ? this.state.data.map((log) => {
+                    return (
+                    <div>
                         <div className="panel-block">
                             <div className="columns">
                                 <div className="column">
@@ -78,8 +91,10 @@ export default class PowerLogs extends Component {
                                 <div className="column">
                                     <h1 className="tag is-primary">13.4 Amps</h1>
                                 </div>
+                            
                             </div>
                         </div>
+                    </div>)}) : <p>Loading...</p>}
                         <br/>
                         <div className="block">
                         <nav className="pagination is-small">

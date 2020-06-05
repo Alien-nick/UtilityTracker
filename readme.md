@@ -6,8 +6,9 @@ This project is to allow me to keep track of my Blaze uptime, and to send my off
 
 # Getting Started
 
-To get started head over to the env file and add the following:
+To get started head over to the backend/.env.example file and do the following:
 
+ - cp .env.example .env
  - Router Username
  - Router Password
  - Router URL

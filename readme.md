@@ -6,7 +6,7 @@ The initial thoughts of this project was to send a notification to my company @i
 
 # Getting Started
 
-To use the project without docker, these are the requirements to start the project.
+To use the project ensure you have a GTT Blaze Router, these are the requirements to start the project.
 - Node
 - Mongodb
 
@@ -22,6 +22,11 @@ Submit the following:
 
 # Docker
 - In progress...
- 
+
+# Roadmap
+### Loggers
+- GTT Bandwidth
+- Notification via Slack
+
 # To contribute
 - You can submit a pull request

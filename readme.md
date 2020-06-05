@@ -8,6 +8,7 @@ The initial thoughts of this project was to send a notification to my company @i
 
 To use the project ensure you have a GTT Blaze Router, these are the requirements to start the project.
 - Node
+- NPM
 - Mongodb
 
 ### Starting up

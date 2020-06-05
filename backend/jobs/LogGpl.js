@@ -9,20 +9,20 @@ dotenv.config()
 
 var slackNotification = null
 
-// Set CRON to 1 minute
+// // Set CRON to 1 minute
 cron.schedule('* * * * *', () => {
   var power
   // Check if there is power outage.
-  var command = 'curl -s -u ' + `${process.env.USERNAME}` + ':' + `${process.env.PASSWORD}` + ' ' + `${process.env.URL}` + 'zhninfo.html' + ' ' + '| grep "var alarmList" | ' + "awk '{print $10}'"
+  var command = 'curl -s -u ' + `${process.env.USERNAME}` + ':' + `${process.env.PASSWORD}` + ' ' + `${process.env.URL}` + '/zhninfo.html' + ' ' + '| grep "var alarmList" | ' + "awk '{print $10}'"
 
   exec(command, (error, stdout, stderr) => {
     var output = stdout
-    console.log(slackNotification)
+    console.log(output)
     var str = output.substring(0, 2)
     if (str !== 'OK') {
       power = false
       if (slackNotification !== true) {
-        slack()
+        // slack()
         slackNotification = true
       }
     } else {
@@ -38,14 +38,14 @@ cron.schedule('* * * * *', () => {
   })
 })
 
-var slack = () => {
-  axios.post(`${process.env.SLACK_WEBHOOK}`, {
-    text: `${process.env.NAME}` + ' encountered a power outage at ' + new Date()
-  })
-}
+// var slack = () => {
+//   axios.post(`${process.env.SLACK_WEBHOOK}`, {
+//     text: `${process.env.NAME}` + ' encountered a power outage at ' + new Date()
+//   })
+// }
 
 var store = (power) => {
-  axios.get(`${process.env.URL}` + 'zhngponstatus.html', {
+  axios.get(`${process.env.URL}` + '/zhngponstatus.html', {
     auth: {
       username: `${process.env.USERNAME}`,
       password: `${process.env.PASSWORD}`

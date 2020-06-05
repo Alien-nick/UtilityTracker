@@ -19,6 +19,7 @@ For those who want to use the project without docker, Install <b> MongoDB </b> a
 
 ## Starting Backend ##
 - Once Mongo is installed and the <b>.env</b> file is setup correctly then proceed to starting the cron and server to distribute the endpoints...
+
 `npm install`
 
 `npm run cron >> cron.log 2>&1 &`

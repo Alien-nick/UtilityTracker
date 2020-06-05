@@ -79,7 +79,7 @@ export default class PowerLogs extends Component {
                     var power = {}
                     log.power === true ? power = {color: 'tag is-success', status: 'Stable' } : power = {color: 'tag is-danger', status: 'Outage'};
                     return (
-                    <div>
+                    <div className="column">
                         <div className="panel-block">
                             <div className="columns">
                                 <div className="column" key={ index }>
@@ -118,7 +118,7 @@ export default class PowerLogs extends Component {
                         </div>
                       </nav>
                     </div>
-                    <div className="column is-8">
+                    <div className="column is-6">
                         <PowerCharts/>
                     </div>
                 </div>

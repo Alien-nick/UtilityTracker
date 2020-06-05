@@ -7,7 +7,7 @@ The initial thoughts of this project was to send a notification to my company @i
 # Getting Started
 For Developers interested in using the project, you can either use docker to quickly spin up the application. See <b>Docker</b> for more details.
 
-For those who want to use the project without docker, Install ### MongoDB ### and then head over to the backend/ folder:
+For those who want to use the project without docker, Install <b> MongoDB </b> and then head over to the backend/ folder:
 
  - cp .env.example .env
  ## Add to .env ##

@@ -3,6 +3,7 @@ const Response = require('http-status-code')
 
 module.exports = {
     index: async (req, res, next) => {
+        /* To implement pagination later.
         var perPage = 10
         var page = req.params.page || 1
         gpl
@@ -20,6 +21,10 @@ module.exports = {
                     })
                 })
             })
+            */
+           gpl.find({}, (err, result) => {
+            err ? res.send(err) : res.json(result)
+        })
     },
 
     summary: async (req, res, next) => {

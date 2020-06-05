@@ -29,11 +29,11 @@ then
         then
             # Start up
             cd backend
-            touch jobs/.env
-            echo -e \USERNAME=$username >> jobs/.env
-            echo -e PASSWORD=$password >>jobs/.env
-            echo -e URL='http://'$gateway >> jobs/.env
-            echo -e MONGO='mongodb://127.0.0.1:27017/logs' >> jobs/.env
+            touch .env
+            echo -e USERNAME=$username >> .env
+            echo -e PASSWORD=$password >> .env
+            echo -e URL='http://'$gateway >> .env
+            echo -e MONGO='mongodb://127.0.0.1:27017/logs' >> .env
 
             npm install --silent
             npm run cron >> cron.log 2>&1 &

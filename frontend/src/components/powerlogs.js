@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { PowerCharts } from './powerCharts';
 import { PowerCards } from './powerCards';
 import axios from 'axios';
+import moment from 'moment';
 
 export default class PowerLogs extends Component {
 
@@ -74,22 +75,24 @@ export default class PowerLogs extends Component {
                             </span>
                             </p>
                         </div>
-                {(this.state.data.length > 0) ? this.state.data.map((log) => {
+                {(this.state.data.length > 0) ? this.state.data.map((log, index) => {
+                    var power = {}
+                    log.power === true ? power = {color: 'tag is-success', status: 'Stable' } : power = {color: 'tag is-danger', status: 'Outage'};
                     return (
                     <div>
                         <div className="panel-block">
                             <div className="columns">
-                                <div className="column">
-                                    <span className="tag is-warning">3 Mins Ago</span>
+                                <div className="column" key={ index }>
+                                    <span className="tag is-warning">{moment(log.time).from()}</span>
                                 </div>
                                 <div className="column">
-                                    <h1 className="tag is-success">Stable</h1>
+                                    <h1 className={power.color}>{power.status}</h1>
                                 </div>
                                 <div className="column">
-                                    <h1 className="tag is-primary">3.4 Volts</h1>
+                                    <h1 className="tag is-primary">{log.voltage} Volts</h1>
                                 </div>
                                 <div className="column">
-                                    <h1 className="tag is-primary">13.4 Amps</h1>
+                                    <h1 className="tag is-primary">{log.temperature}</h1>
                                 </div>
                             
                             </div>

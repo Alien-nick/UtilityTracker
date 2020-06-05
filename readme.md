@@ -26,6 +26,7 @@ Submit the following:
 # Roadmap
 - GTT Bandwidth Logger
 - Notification via Slack
+- Realtime updates
 
 # To contribute
 - You can submit a pull request

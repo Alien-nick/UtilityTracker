@@ -32,3 +32,6 @@ Submit the following:
 # To contribute
 - You can submit a pull request
 - Submit issues, ensure to assign me to the issue and labelled appropriately, for e.g(If a feature not working, it is consider a bug, if new features to be added, it is consider enhancement).
+
+###
+- Give a star if you appreciate this project LOL :-)

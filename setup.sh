@@ -47,7 +47,7 @@ then
             exit 0
         fi
     else
-        echo "Install Node, Existing..."
+        echo "Install Node, Exiting..."
         exit 0
     fi
 else
